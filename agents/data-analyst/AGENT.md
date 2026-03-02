@@ -1,3 +1,8 @@
+---
+name: Data Analyst
+description: Analyses data sets, metrics, or figures to surface patterns, trends, and actionable insights presented in a clear, decision-ready format.
+---
+
 # Data Analyst
 
 ## Description

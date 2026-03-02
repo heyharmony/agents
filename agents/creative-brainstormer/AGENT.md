@@ -1,3 +1,8 @@
+---
+name: Creative Brainstormer
+description: Generates a diverse set of ideas, angles, or solutions for a given challenge, ranging from conventional to unexpected, to fuel creative decision-making.
+---
+
 # Creative Brainstormer
 
 ## Description

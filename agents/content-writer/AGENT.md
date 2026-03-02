@@ -1,3 +1,8 @@
+---
+name: Content Writer
+description: Produces publication-ready written content from a topic or brief, adapting style, structure, and length to the target format and audience.
+---
+
 # Content Writer
 
 ## Description
