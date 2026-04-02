@@ -22,9 +22,12 @@ const ASSET_KIND = 'agents';
 
 // S3/CDN config from environment (set in GitHub Actions)
 const S3_BUCKET = process.env.AWS_S3_BUCKET_NAME || '';
-const S3_REGION = process.env.AWS_REGION || 'eu-north-1';
+const S3_REGION = process.env.AWS_REGION || 'auto';
+const S3_ENDPOINT = process.env.AWS_ENDPOINT_URL || '';
 const CDN_BASE_URL = (process.env.CDN_BASE_URL || '').replace(/\/$/, '');
 let S3_ENABLED = !!(S3_BUCKET && CDN_BASE_URL);
+
+const S3_FLAGS = `--bucket "${S3_BUCKET}" --region "${S3_REGION}"${S3_ENDPOINT ? ` --endpoint-url "${S3_ENDPOINT}"` : ''}`;
 
 const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp']);
 
@@ -68,7 +71,7 @@ function parseYamlValue(val) {
 function s3KeyExists(s3Key) {
   try {
     execSync(
-      `aws s3api head-object --bucket "${S3_BUCKET}" --key "${s3Key}" --region "${S3_REGION}" 2>/dev/null`,
+      `aws s3api head-object ${S3_FLAGS} --key "${s3Key}" 2>/dev/null`,
       { stdio: 'pipe' },
     );
     return true;
@@ -79,9 +82,10 @@ function s3KeyExists(s3Key) {
 
 function uploadToS3(localPath, s3Key) {
   const contentType = getContentType(localPath);
+  const endpointFlag = S3_ENDPOINT ? `--endpoint-url "${S3_ENDPOINT}"` : '';
   try {
     execSync(
-      `aws s3 cp "${localPath}" "s3://${S3_BUCKET}/${s3Key}" --region "${S3_REGION}" --content-type "${contentType}" --cache-control "public, max-age=31536000, immutable"`,
+      `aws s3 cp "${localPath}" "s3://${S3_BUCKET}/${s3Key}" --region "${S3_REGION}" ${endpointFlag} --content-type "${contentType}" --cache-control "public, max-age=31536000, immutable"`,
       { stdio: 'pipe' },
     );
     return true;
@@ -181,7 +185,7 @@ function buildIndex() {
 
   if (S3_ENABLED) {
     try {
-      execSync(`aws s3api list-objects-v2 --bucket "${S3_BUCKET}" --region "${S3_REGION}" --max-items 1 2>/dev/null`, { stdio: 'pipe' });
+      execSync(`aws s3api list-objects-v2 ${S3_FLAGS} --max-items 1 2>/dev/null`, { stdio: 'pipe' });
       console.log(`S3 uploads enabled: bucket=${S3_BUCKET}, cdn=${CDN_BASE_URL}`);
     } catch {
       console.warn('S3 access check failed — disabling image uploads. index.json will still be generated.');
