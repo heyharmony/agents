@@ -1,6 +1,12 @@
 ---
 name: Data Analyst
 description: Analyses data sets, metrics, or figures to surface patterns, trends, and actionable insights presented in a clear, decision-ready format.
+category: "Strategy"
+author: "Harmony"
+version: "1.0.0"
+icon: "sparkles"
+cover: ""
+screenshots: []
 ---
 
 # Data Analyst

@@ -1,0 +1,55 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-02T19:53:07.804Z",
+  "count": 4,
+  "items": [
+    {
+      "id": "content-writer",
+      "name": "Content Writer",
+      "description": "Produces publication-ready written content from a topic or brief, adapting style, structure, and length to the target format and audience.",
+      "category": "Communication",
+      "author": "Harmony",
+      "version": "1.0.0",
+      "icon": "sparkles",
+      "cover": null,
+      "screenshots": "[]",
+      "prompt": "# Content Writer\n\n## Description\n\nProduces publication-ready written content from a topic or brief, adapting style, structure, and length to the target format and audience.\n\n## Triggers\n\n- Manual invocation\n\n## Inputs\n\n| Name     | Type   | Required | Description                                      |\n| -------- | ------ | -------- | ------------------------------------------------ |\n| brief    | string | yes      | Topic or description of what to write            |\n| format   | string | no       | Output format (blog, social, newsletter, ad copy)|\n| tone     | string | no       | Tone (professional, casual, witty, inspirational)|\n| audience | string | no       | Target audience (e.g. developers, executives)    |\n| length   | string | no       | Desired length (short, medium, long)             |\n\n## Outputs\n\nFormatted content ready for publishing, including:\n- Headline or subject line (where applicable)\n- Body copy structured for the chosen format\n- Suggested call-to-action (if relevant)"
+    },
+    {
+      "id": "creative-brainstormer",
+      "name": "Creative Brainstormer",
+      "description": "Generates a diverse set of ideas, angles, or solutions for a given challenge, ranging from conventional to unexpected, to fuel creative decision-making.",
+      "category": "Strategy",
+      "author": "Harmony",
+      "version": "1.0.0",
+      "icon": "sparkles",
+      "cover": null,
+      "screenshots": "[]",
+      "prompt": "# Creative Brainstormer\n\n## Description\n\nGenerates a diverse set of ideas, angles, or solutions for a given challenge, ranging from conventional to unexpected, to fuel creative decision-making.\n\n## Triggers\n\n- Manual invocation\n\n## Inputs\n\n| Name     | Type   | Required | Description                                         |\n| -------- | ------ | -------- | --------------------------------------------------- |\n| challenge| string | yes      | The problem, theme, or area to brainstorm around    |\n| quantity | string | no       | Number of ideas to generate (default: 10)           |\n| style    | string | no       | Idea style (practical, bold, playful, mixed)        |\n| bounds   | string | no       | Constraints or guardrails (budget, brand voice, etc)|\n\n## Outputs\n\nA list of ideas including:\n- Each idea with a short title and one-line description\n- A mix of safe bets and stretch ideas\n- Optional grouping by theme when quantity is high"
+    },
+    {
+      "id": "data-analyst",
+      "name": "Data Analyst",
+      "description": "Analyses data sets, metrics, or figures to surface patterns, trends, and actionable insights presented in a clear, decision-ready format.",
+      "category": "Strategy",
+      "author": "Harmony",
+      "version": "1.0.0",
+      "icon": "sparkles",
+      "cover": null,
+      "screenshots": "[]",
+      "prompt": "# Data Analyst\n\n## Description\n\nAnalyses data sets, metrics, or figures to surface patterns, trends, and actionable insights presented in a clear, decision-ready format.\n\n## Triggers\n\n- Manual invocation\n\n## Inputs\n\n| Name   | Type   | Required | Description                                         |\n| ------ | ------ | -------- | --------------------------------------------------- |\n| data   | string | yes      | Raw data, metrics, or description of the dataset    |\n| goal   | string | no       | Specific question or objective for the analysis     |\n| output | string | no       | Desired output (summary, report, chart description) |\n\n## Outputs\n\nAn analysis containing:\n- Key findings and patterns\n- Statistical highlights or comparisons\n- Actionable recommendations\n- Caveats or data-quality notes (if applicable)"
+    },
+    {
+      "id": "strategic-advisor",
+      "name": "Strategic Advisor",
+      "description": "Provides structured analysis of decisions, trade-offs, and strategic questions using proven frameworks, helping teams move from ambiguity to clarity.",
+      "category": "Strategy",
+      "author": "Harmony",
+      "version": "1.0.0",
+      "icon": "sparkles",
+      "cover": null,
+      "screenshots": "[]",
+      "prompt": "# Strategic Advisor\n\n## Description\n\nProvides structured analysis of decisions, trade-offs, and strategic questions using proven frameworks, helping teams move from ambiguity to clarity.\n\n## Triggers\n\n- Manual invocation\n\n## Inputs\n\n| Name        | Type   | Required | Description                                          |\n| ----------- | ------ | -------- | ---------------------------------------------------- |\n| situation   | string | yes      | The decision, problem, or strategic question         |\n| framework   | string | no       | Analysis framework (pros-cons, SWOT, matrix, first-principles) |\n| constraints | string | no       | Known constraints or non-negotiables                 |\n| context     | string | no       | Background info, market data, or prior decisions     |\n\n## Outputs\n\nA structured analysis containing:\n- Framing of the core question\n- Options evaluated with trade-offs\n- Recommended path with rationale\n- Risks and mitigations"
+    }
+  ]
+}

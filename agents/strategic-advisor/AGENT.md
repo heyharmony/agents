@@ -1,6 +1,12 @@
 ---
 name: Strategic Advisor
 description: Provides structured analysis of decisions, trade-offs, and strategic questions using proven frameworks, helping teams move from ambiguity to clarity.
+category: "Strategy"
+author: "Harmony"
+version: "1.0.0"
+icon: "sparkles"
+cover: ""
+screenshots: []
 ---
 
 # Strategic Advisor
