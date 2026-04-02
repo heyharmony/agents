@@ -24,7 +24,7 @@ const ASSET_KIND = 'agents';
 const S3_BUCKET = process.env.AWS_S3_BUCKET_NAME || '';
 const S3_REGION = process.env.AWS_REGION || 'eu-north-1';
 const CDN_BASE_URL = (process.env.CDN_BASE_URL || '').replace(/\/$/, '');
-const S3_ENABLED = !!(S3_BUCKET && CDN_BASE_URL);
+let S3_ENABLED = !!(S3_BUCKET && CDN_BASE_URL);
 
 const IMAGE_EXTENSIONS = new Set(['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp']);
 
@@ -180,9 +180,17 @@ function buildIndex() {
   }
 
   if (S3_ENABLED) {
-    console.log(`S3 uploads enabled: bucket=${S3_BUCKET}, cdn=${CDN_BASE_URL}`);
-  } else {
-    console.log('S3 uploads disabled. Using local paths.');
+    try {
+      execSync(`aws s3api list-objects-v2 --bucket "${S3_BUCKET}" --region "${S3_REGION}" --max-items 1 2>/dev/null`, { stdio: 'pipe' });
+      console.log(`S3 uploads enabled: bucket=${S3_BUCKET}, cdn=${CDN_BASE_URL}`);
+    } catch {
+      console.warn('S3 access check failed — disabling image uploads. index.json will still be generated.');
+      S3_ENABLED = false;
+    }
+  }
+
+  if (!S3_ENABLED) {
+    console.log('S3 uploads disabled. Images will use local paths (or be omitted).');
   }
 
   const folders = fs.readdirSync(ASSETS_DIR, { withFileTypes: true })
