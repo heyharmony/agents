@@ -1,6 +1,12 @@
 ---
 name: Creative Brainstormer
 description: Generates a diverse set of ideas, angles, or solutions for a given challenge, ranging from conventional to unexpected, to fuel creative decision-making.
+category: "Strategy"
+author: "Harmony"
+version: "1.0.0"
+icon: "sparkles"
+cover: ""
+screenshots: []
 ---
 
 # Creative Brainstormer
