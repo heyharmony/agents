@@ -21,7 +21,7 @@ jobs:
         env:
           CDN_BUCKET: ${{ secrets.CDN_BUCKET }}
           CDN_BASE_URL: ${{ vars.CDN_BASE_URL }}
-          CDN_ENDPOINT: ${{ vars.R2_ENDPOINT }}
+          CDN_ENDPOINT: ${{ vars.CDN_ENDPOINT }}
           CDN_ACCESS_KEY: ${{ secrets.CDN_ACCESS_KEY }}
           CDN_SECRET_KEY: ${{ secrets.CDN_SECRET_KEY }}
         run: node scripts/build-index.js
